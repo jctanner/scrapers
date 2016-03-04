@@ -53,7 +53,7 @@ def main():
                 #import pdb; pdb.set_trace()
 
             datacenters[dcname] = {}
-            datacenters[dcname] = dcname
+            datacenters[dcname]['name'] = dcname
             datacenters[dcname]['street'] = lines[3]
             datacenters[dcname]['city'] = city
             datacenters[dcname]['zipcode'] = zipcode
