@@ -139,7 +139,7 @@ def main():
             sys.stdout.write('"' + v.get(key, "") + '"' + ',')
         sys.stdout.write('\n')
     #import pdb; pdb.set_trace()
-    dict_to_csv(mfnames, 'manufacturers.csv')
+    dict_to_csv(mfers, 'manufacturers.csv')
 
 if __name__ == "__main__":
     main() 
