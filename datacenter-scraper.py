@@ -86,7 +86,7 @@ def main():
             sys.stdout.write(v[key] + ',')
         sys.stdout.write('\n')
     #import pdb; pdb.set_trace()
-    dict_to_csv(comps, 'manufacturers.csv')
+    dict_to_csv(datacenters, 'datacenters.csv')
 
 
 if __name__ == "__main__":
