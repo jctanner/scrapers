@@ -5,6 +5,7 @@ import requests
 import requests_cache
 from bs4 import BeautifulSoup
 from pprint import pprint
+from lib.csvtools import dict_to_csv
 
 def main():
 
@@ -85,7 +86,7 @@ def main():
             sys.stdout.write(v[key] + ',')
         sys.stdout.write('\n')
     #import pdb; pdb.set_trace()
-
+    dict_to_csv(datacenters, 'datacenters.csv')
 
 
 if __name__ == "__main__":
