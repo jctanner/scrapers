@@ -5,6 +5,7 @@ import requests
 import requests_cache
 from bs4 import BeautifulSoup
 from pprint import pprint
+from lib.csvtools import dict_to_csv
 
 def main() :
     requests_cache.install_cache('scraper_cache')
@@ -62,26 +63,9 @@ def main() :
                 comps[name][k] = soup.find(v[0], {v[1] : v[2]}).text.strip()
             except Exception as e:
                 comps[name][k] = ""
-            
-        #contact = soup.find('span', {'class' : 'ListingDetails_Level5_MAINCONTACT'}).text.strip()
-        #comps[name]['contact'] = contact
-               
-    ## print column headings then all attributes for each company
-    f = open('output.csv', 'w')   
-    
-    columns = [x for x in comps[comps.keys()[0]].keys() if x != 'name']
-    columns = ['name'] + columns
 
-    f.write(','.join(columns) + '\n')
-    for k,v in comps.items():
-        for column in columns:
-            f.write('"' + v[column] + '"' + ',')
-        f.write('\n')
-    
-    f.close()
-    import pdb; pdb.set_trace()
-
-        
+    dict_to_csv(comps, 'ralcham.csv')
+       
         
 if __name__ == "__main__" :
     main()
